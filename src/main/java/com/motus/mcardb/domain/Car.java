@@ -14,6 +14,8 @@ public class Car {
 	private String brand, model, color, registerNumber;
 	private int year, price;
 	
+	public Car() {}
+	
 	public long getId() {
 		return id;
 	}
