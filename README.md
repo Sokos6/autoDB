@@ -14,6 +14,11 @@ http://localhost:8080/api
 
 githttp://localhost:8080/cars
 
+
+The following URL demonstrates how to fetch cars by brand:
+
+http://localhost:8080/api/cars/search/findByBrand?brand=Ford
+
 ### Making a Progressive Web App
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
