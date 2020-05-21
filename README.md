@@ -6,7 +6,13 @@ You can access the H2 console by navigating to localhost:8080/h2-console with th
 http://localhost:8080/h2-console
 
 
+### `API LINKS`
 
+http://localhost:8080/api
+
+### `CARS`
+
+http://localhost:8080/cars
 
 ### Making a Progressive Web App
 
