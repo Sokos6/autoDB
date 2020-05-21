@@ -23,7 +23,7 @@ public class Car {
 	
 	public Car() {}
 	
-	public Car(String brand, String model, String color, String registerNumber, int year, int price) {
+	public Car(String brand, String model, String color, String registerNumber, int year, int price, Owner owner) {
 		super();
 		this.brand = brand;
 		this.model = model;
@@ -31,6 +31,7 @@ public class Car {
 		this.registerNumber = registerNumber;
 		this.year = year;
 		this.price = price;
+		this.owner = owner;
 	}
 	
 	public Owner getOwner() {
