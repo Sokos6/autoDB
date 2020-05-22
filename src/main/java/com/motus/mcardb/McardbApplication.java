@@ -10,6 +10,8 @@ import com.motus.mcardb.domain.Car;
 import com.motus.mcardb.domain.CarRepository;
 import com.motus.mcardb.domain.Owner;
 import com.motus.mcardb.domain.OwnerRepository;
+import com.motus.mcardb.domain.User;
+import com.motus.mcardb.domain.UserRepository;
 
 @SpringBootApplication
 public class McardbApplication {
@@ -19,6 +21,9 @@ public class McardbApplication {
 
 	@Autowired
 	private OwnerRepository orepository;
+	
+	@Autowired
+	private UserRepository urepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(McardbApplication.class, args);
@@ -44,6 +49,15 @@ public class McardbApplication {
                 car = new Car("Toyota", "Prius", "Silver",
                     "KKO-0212", 2018, 39000, owner2);
                 repository.save(car);
+                
+               
+                urepository.save(new User("user",
+               "$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi",
+                "USER"));
+               
+                urepository.save(new User("admin",
+                "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG", 
+                "ADMIN"));
         };
 	}
 

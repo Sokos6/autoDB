@@ -14,6 +14,10 @@ http://localhost:8080/api
 
 githttp://localhost:8080/cars
 
+### `authenticated curl` 
+http://localhost:8080/api -u admin
+password admin 
+
 
 The following URL demonstrates how to fetch cars by brand:
 
