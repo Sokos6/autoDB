@@ -18,6 +18,17 @@ githttp://localhost:8080/cars
 http://localhost:8080/api -u admin
 password admin 
 
+### `JWT`
+
+The first part is the header that defines the type of the token and the hashing algorithm.
+The second part is the payload that, typically, in the case of authentication, contains information pertaining to the user.
+The third part is the signature that is used to verify that the token hasn't been changed along the way. The following is an example of a JWT token:
+eyJhbGciOiJIUzI1NiJ9.
+eyJzdWIiOiJKb2UifD.
+ipevRNuRP6HflG8cFKnmUPtypruRC4fc1DWtoLL62SY
+
+https://github.com/jwtk/jjwt
+
 
 The following URL demonstrates how to fetch cars by brand:
 
