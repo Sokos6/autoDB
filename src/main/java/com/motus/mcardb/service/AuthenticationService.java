@@ -26,4 +26,20 @@ public class AuthenticationService {
 		res.addHeader("Authorization", PREFIX + " " + JwtToken);
 		res.addHeader("Access-Control-Expose-Headers", "Authorization");
 	}
+	
+	// Get token from Authorization header
+	static public Authentication getAuthentication(HttpServletRequest request) {
+		String token = request.getHeader("Authorization");
+		if (token != null) {
+			String user = Jwts.parser()
+					.setSigningKey(SIGNINGKEY)
+					.parseClaimsJws(token.replace(PREFIX, ""))
+					.getBody()
+					.getSubject();
+			
+			if (user != null)
+				return new UsernamePasswordAuthenticationToken(user, null, emptyList());
+		}
+		return null;
+	}
 }
