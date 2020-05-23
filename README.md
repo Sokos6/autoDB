@@ -46,6 +46,11 @@ Access-Control-Expose-Headers Authorization
 returns 200
 Authorization Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MDI4MDE4NX0.kxdcRvgV3PEGhrdVPZT78Eh8_ACrBw6PNH32xZ3FiH8GPWv5OK0OIKu6lFkQ7eUPkcwlbGihQlUcA-j5g5urLA
 
+GET 
+http://localhost:8080/api/cars
+Headers Authorization eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5MDI4MDE4NX0.kxdcRvgV3PEGhrdVPZT78Eh8_ACrBw6PNH32xZ3FiH8GPWv5OK0OIKu6lFkQ7eUPkcwlbGihQlUcA-j5g5urLA
+
+
 ### Making a Progressive Web App
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
