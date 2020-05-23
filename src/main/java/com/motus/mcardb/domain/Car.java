@@ -1,6 +1,8 @@
 package com.motus.mcardb.domain;
 
 
+import java.util.function.IntPredicate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,6 +34,14 @@ public class Car {
 		this.year = year;
 		this.price = price;
 		this.owner = owner;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	public Owner getOwner() {
@@ -78,4 +88,5 @@ public class Car {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
 }

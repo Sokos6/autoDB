@@ -18,9 +18,27 @@ public class CarRepositoryTest {
 
 	@Autowired
 	private TestEntityManager entityManager;
-	
+
 	@Autowired
 	private CarRepository repository;
-	
+
 	// Test Cases
+	@Test
+	public void saveCar() {
+		Car car = new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86000, null);
+		entityManager.persistAndFlush(car);
+
+		assertThat(car.getId()).isNotNull();
+	}
+	
+	@Test
+	  public void deleteCars() {
+	    entityManager.persistAndFlush(new Car("Tesla", "Model X", "White",
+	        "ABC-1234", 2017, 86000, null));
+	    entityManager.persistAndFlush(new Car("Mini", "Cooper", "Yellow",
+	        "BWS-3007", 2015, 24500, null));
+	    
+	    repository.deleteAll();
+	    assertThat(repository.findAll()).isEmpty();
+	  } 
 }
