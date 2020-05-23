@@ -53,8 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       return source;
 	  
   }
-  
-  
 
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
