@@ -38,6 +38,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 UsernamePasswordAuthenticationFilter.class);
   }
   
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+	  UrlBasedCorsConfigurationSource source = 
+			  new UrlBasedCorsConfigurationSource();
+	  CorsConfiguration config = new CorsConfiguration();
+	  config.setAllowedOrigins(Arrays.asList("*"));
+	  config.setAllowedMethods(Arrays.asList("*"));
+      config.setAllowedHeaders(Arrays.asList("*"));
+      config.setAllowCredentials(true);
+      config.applyPermitDefaultValues();
+      
+      source.registerCorsConfiguration("/**", config);
+      return source;
+	  
+  }
+  
   
 
   @Autowired
