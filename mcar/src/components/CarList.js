@@ -4,7 +4,9 @@ import ReactTable from 'react-table-v6';
 import 'react-table-v6/react-table.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Button from '@material-ui/core/Button';
 import AddCar from './AddCar';
+import EditCar from './EditCar';
 
 class CarList extends Component {
   constructor(props) {
@@ -57,6 +59,27 @@ class CarList extends Component {
       .catch((err) => console.error(err));
   }
 
+  updateCar(car, link) {
+    fetch(link, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(car),
+    })
+      .then((res) => {
+        toast.success('Changes saved', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+        this.fetchCars();
+      })
+      .catch((err) =>
+        toast.error('Error when saving', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        })
+      );
+  }
+
   render() {
     // const { cars } = this.state;
     const columns = [
@@ -86,14 +109,30 @@ class CarList extends Component {
         filterable: false,
         width: 100,
         accessor: '_links.self.href',
+        Cell: ({ value, row }) => (
+          <EditCar
+            car={row}
+            link={value}
+            updateCar={this.updateCar}
+            fetchCars={this.fetchCars}
+          />
+        ),
+      },
+      {
+        sortable: false,
+        filterable: false,
+        width: 100,
+        accessor: '_links.self.href',
         Cell: ({ value }) => (
-          <button
+          <Button
+            size='small'
+            color='secondary'
             onClick={() => {
               this.onDelClick(value);
             }}
           >
             Delete
-          </button>
+          </Button>
         ),
       },
     ];
