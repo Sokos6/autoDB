@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import { SERVER_URL } from '../constants';
+import ReactTable from 'react-table';
+import {
+  useTable,
+  useGroupBy,
+  useFilters,
+  useSortBy,
+  useExpanded,
+  usePagination,
+} from 'react-table';
+
 
 class CarList extends Component {
   constructor(props) {
@@ -20,20 +30,27 @@ class CarList extends Component {
 
   render() {
     const { cars } = this.state;
-    const tableRows = cars.map((car, index) => (
-      <tr key={index}>
-        <td>{car.brand}</td>
-        <td>{car.model}</td>
-        <td>{car.color}</td>
-        <td>{car.year}</td>
-        <td>{car.price}</td>
-      </tr>
-    ));
+    const columns = [{
+      Header: 'Brand',
+      accessor: 'brand'
+    }, {
+      Header: 'Model',
+      accessor: 'model',
+    }, {
+      Header: 'Color',
+      accessor: 'color',
+    }, {
+      Header: 'Year',
+      accessor: 'year',
+    }, {
+      Header: 'Price €',
+      accessor: 'price',
+    },]
+
     return (
       <div className='car-list'>
-        <table>
-          <tbody>{tableRows}</tbody>
-        </table>
+        <ReactTable data={cars} columns={columns}
+        filterable={true}/>
       </div>
     );
   }
