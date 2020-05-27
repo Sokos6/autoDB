@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { SERVER_URL } from '../constants';
 import ReactTable from 'react-table-v6';
 import 'react-table-v6/react-table.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class CarList extends Component {
   constructor(props) {
@@ -22,15 +24,25 @@ class CarList extends Component {
         });
       })
       .catch((err) => console.error(err));
-  }
+  };
 
   onDelClick = (link) => {
-    fetch(link, {method: 'DELETE'})
-    .then(res => this.fetchCars())
-    .catch(err => console.error(err))
-  }
-
-
+    if (window.confirm('Are you sure you want to delete?')) {
+      fetch(link, { method: 'DELETE' })
+        .then((res) => {
+          toast.success('Car Deleted', {
+            position: toast.POSITION.BOTTOM_LEFT,
+          });
+          this.fetchCars();
+        })
+        .catch((err) => {
+          toast.error('Error when deleting', {
+            position: toast.POSITION.LEFT,
+          });
+          console.error(err);
+        });
+    }
+  };
 
   render() {
     // const { cars } = this.state;
@@ -80,6 +92,7 @@ class CarList extends Component {
           columns={columns}
           filterable={true}
         />
+        <ToastContainer autoClose={1500} />
       </div>
     );
   }
