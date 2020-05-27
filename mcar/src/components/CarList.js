@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { SERVER_URL } from '../constants';
-import ReactTable from 'react-table';
-import {
-  useTable,
-  useGroupBy,
-  useFilters,
-  useSortBy,
-  useExpanded,
-  usePagination,
-} from 'react-table';
+import ReactTable from 'react-table-v6';
+import 'react-table-v6/react-table.css';
 
 
 class CarList extends Component {
@@ -29,7 +22,7 @@ class CarList extends Component {
   }
 
   render() {
-    const { cars } = this.state;
+    // const { cars } = this.state;
     const columns = [{
       Header: 'Brand',
       accessor: 'brand'
@@ -49,7 +42,7 @@ class CarList extends Component {
 
     return (
       <div className='car-list'>
-        <ReactTable data={cars} columns={columns}
+        <ReactTable data={this.state.cars} columns={columns}
         filterable={true}/>
       </div>
     );

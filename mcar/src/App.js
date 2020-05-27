@@ -9,7 +9,7 @@ function App() {
   return (
     // figure out the css stuffs
     <div className="App">
-      <AppBar position="static" color="default" style={{ background: '#00ADEF' }}>>
+      <AppBar position="static" color="default" style={{ background: '#00ADEF' }}>
         <Toolbar>
           <Typography variant="h6" color="inherit">
            CarList
