@@ -5,6 +5,7 @@ import 'react-table-v6/react-table.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from '@material-ui/core/Button';
+import { CSVLink } from 'react-csv';
 import AddCar from './AddCar';
 import EditCar from './EditCar';
 
@@ -140,6 +141,7 @@ class CarList extends Component {
     return (
       <div className='car-list'>
         <AddCar addCar={this.addCar} fetchCars={this.fetchCars} />
+        <CSVLink data={this.state.cars} separator=';'>Export CSV</CSVLink>
         <ReactTable
           data={this.state.cars}
           columns={columns}
