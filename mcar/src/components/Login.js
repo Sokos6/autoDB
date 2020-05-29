@@ -51,6 +51,28 @@ const Login = () => {
       document.removeEventListener("keydown", listener);
     };
   });
+// TODO: ROUTING
+  // const SecuredRoute = ({ component: Component, ...rest, isAuthenticated }) => (
+  //   <Route {...rest} render={props => (
+  //     isAuthenticated ? (
+  //       <Component {...props}/>
+  //     ) : (
+  //       <Redirect to={{
+  //         pathname: '/login',
+  //         state: { from: props.location }
+  //       }}/>
+  //     )
+  //   )}/>
+  // )
+
+  // <Switch>
+  //   <Route path="/login" component={Login} />
+  //   <Route path="/contact" component={Contact} />
+  //   <SecuredRoute isAuthenticated={this.state.isAuthenticated}
+  //     path="/shop" component={Shop} />
+  //   <Route render={() => <h1>Page not found</h1>} />
+  // </Switch>
+
 
   if (isAuthenticated === true) {
     return (<CarList />)
