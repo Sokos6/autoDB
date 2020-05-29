@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import './App.css';
-import CarList from './components/CarList';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <CarList />
+      <Login />
     </div>
   );
 }
