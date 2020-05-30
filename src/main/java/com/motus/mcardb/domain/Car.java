@@ -1,8 +1,5 @@
 package com.motus.mcardb.domain;
 
-
-import java.util.function.IntPredicate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
