@@ -1,20 +1,28 @@
-package com.motus.mcardb;
+package com.codefrequency.mcardb;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
-import com.motus.mcardb.domain.Car;
-import com.motus.mcardb.domain.CarRepository;
-import com.motus.mcardb.domain.Owner;
-import com.motus.mcardb.domain.OwnerRepository;
-import com.motus.mcardb.domain.User;
-import com.motus.mcardb.domain.UserRepository;
+import com.codefrequency.*;
+import com.codefrequency.*;.mcardb.domain.CarRepository;
+import com.codefrequency.*;.mcardb.domain.Owner;
+import com.codefrequency.*;.mcardb.domain.OwnerRepository;
+import com.codefrequency.*;.mcardb.domain.User;
+import com.codefrequency.*;.mcardb.domain.UserRepository;
 
 @SpringBootApplication
-public class McardbApplication {
+public class McardbApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure (SpringApplicationBuilder application) {
+		return application.sources(McardbApplication.class);
+	}
+
 	// Inject repositories
 	@Autowired
 	private CarRepository repository;
@@ -25,7 +33,7 @@ public class McardbApplication {
 	@Autowired
 	private UserRepository urepository;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  throws Exception {
 		SpringApplication.run(McardbApplication.class, args);
 	}
 
